@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.madgrades.com)",
+      "Bash(curl -s https://api.madgrades.com/openapi.yaml -o /home/xwen/projects/course_selection/madgrades_openapi.yaml)",
+      "Bash(ls /home/xwen/projects/course_selection/.env*)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 *)"
+    ]
+  }
+}
