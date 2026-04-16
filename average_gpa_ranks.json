@@ -1,0 +1,752 @@
+[
+  {
+    "catalog_number": "RP & SE 125",
+    "course_title": "Health and Rehabilitation Professions",
+    "gpa": 3.9608
+  },
+  {
+    "catalog_number": "PHILOS 244",
+    "course_title": "Introductory Artificial Intelligence (AI) and Data Ethics",
+    "gpa": 3.9587
+  },
+  {
+    "catalog_number": "ED POL 212",
+    "course_title": "Education for Social Justice",
+    "gpa": 3.9385
+  },
+  {
+    "catalog_number": "LINGUIS 213",
+    "course_title": "Language, Gender and Sexuality",
+    "gpa": 3.9252
+  },
+  {
+    "catalog_number": "LINGUIS 213",
+    "course_title": "Topics in Sociolinguistics",
+    "gpa": 3.9252
+  },
+  {
+    "catalog_number": "RP & SE 121",
+    "course_title": "Disability and Substance Abuse",
+    "gpa": 3.9131
+  },
+  {
+    "catalog_number": "LINGUIS 237",
+    "course_title": "Language in Wisconsin",
+    "gpa": 3.9129
+  },
+  {
+    "catalog_number": "ED POL 210",
+    "course_title": "Youth, Education, and Society",
+    "gpa": 3.9108
+  },
+  {
+    "catalog_number": "ED POL 140",
+    "course_title": "Introduction to Education",
+    "gpa": 3.8686
+  },
+  {
+    "catalog_number": "C&E SOC 343",
+    "course_title": "Sociology of Health and Medicine",
+    "gpa": 3.8474
+  },
+  {
+    "catalog_number": "SOC 343",
+    "course_title": "Sociology of Health and Medicine",
+    "gpa": 3.8474
+  },
+  {
+    "catalog_number": "ENVIR ST 101",
+    "course_title": "Forum on the Environment",
+    "gpa": 3.8435
+  },
+  {
+    "catalog_number": "SOIL SCI 101",
+    "course_title": "Forum on the Environment",
+    "gpa": 3.8435
+  },
+  {
+    "catalog_number": "ENVIR ST 215",
+    "course_title": "Sustainability",
+    "gpa": 3.8427
+  },
+  {
+    "catalog_number": "ED POL 220",
+    "course_title": "Human Rights and Education",
+    "gpa": 3.8401
+  },
+  {
+    "catalog_number": "INTL ST 220",
+    "course_title": "Human Rights and Education",
+    "gpa": 3.8401
+  },
+  {
+    "catalog_number": "CURRIC 277",
+    "course_title": "Videogames & Learning",
+    "gpa": 3.839
+  },
+  {
+    "catalog_number": "COUN PSY 230",
+    "course_title": "Race and the Developing Child",
+    "gpa": 3.8377
+  },
+  {
+    "catalog_number": "ED POL 240",
+    "course_title": "Comparative Education",
+    "gpa": 3.8351
+  },
+  {
+    "catalog_number": "RP & SE 100",
+    "course_title": "Disability and Society",
+    "gpa": 3.8336
+  },
+  {
+    "catalog_number": "ENGL 179",
+    "course_title": "Introduction to Language and Ideology",
+    "gpa": 3.831
+  },
+  {
+    "catalog_number": "ED POL 202",
+    "course_title": "Careers in Education",
+    "gpa": 3.8222
+  },
+  {
+    "catalog_number": "ED POL 300",
+    "course_title": "School and Society",
+    "gpa": 3.8149
+  },
+  {
+    "catalog_number": "ENTOM 203",
+    "course_title": "Introduction to Global Health",
+    "gpa": 3.8095
+  },
+  {
+    "catalog_number": "NUTR SCI 203",
+    "course_title": "Introduction to Global Health",
+    "gpa": 3.8095
+  },
+  {
+    "catalog_number": "ED POL 320",
+    "course_title": "Climate Change, Sustainability, and Education",
+    "gpa": 3.7973
+  },
+  {
+    "catalog_number": "CHICLA 321",
+    "course_title": "Chicano/Latino Educational Justice",
+    "gpa": 3.7917
+  },
+  {
+    "catalog_number": "CURRIC 321",
+    "course_title": "Chicano/Latino Educational Justice",
+    "gpa": 3.7917
+  },
+  {
+    "catalog_number": "NURSING 105",
+    "course_title": "Health Care Systems: Interdisciplinary Approach",
+    "gpa": 3.7893
+  },
+  {
+    "catalog_number": "S&A PHM 105",
+    "course_title": "Health Care Systems: Interdisciplinary Approach",
+    "gpa": 3.7893
+  },
+  {
+    "catalog_number": "SOC WORK 105",
+    "course_title": "Health Care Systems: Interdisciplinary Approach",
+    "gpa": 3.7893
+  },
+  {
+    "catalog_number": "HDFS 263",
+    "course_title": "Development from Adolescence to Old Age",
+    "gpa": 3.7839
+  },
+  {
+    "catalog_number": "L I S 202",
+    "course_title": "Informational Divides and Differences in a Multicultural Society",
+    "gpa": 3.7744
+  },
+  {
+    "catalog_number": "L I S 351",
+    "course_title": "Introduction to Digital Information",
+    "gpa": 3.7659
+  },
+  {
+    "catalog_number": "AFROAMER 270",
+    "course_title": "20th Cent Black Mil Hist",
+    "gpa": 3.7632
+  },
+  {
+    "catalog_number": "AFROAMER 270",
+    "course_title": "Selected Topics in African American Studies",
+    "gpa": 3.7632
+  },
+  {
+    "catalog_number": "HDFS 262",
+    "course_title": "Development of the Young Child",
+    "gpa": 3.7608
+  },
+  {
+    "catalog_number": "CHICLA 245",
+    "course_title": "Chicana and Latina History",
+    "gpa": 3.7586
+  },
+  {
+    "catalog_number": "GEN&WS 245",
+    "course_title": "Chicana and Latina History",
+    "gpa": 3.7586
+  },
+  {
+    "catalog_number": "HISTORY 245",
+    "course_title": "Chicana and Latina History",
+    "gpa": 3.7586
+  },
+  {
+    "catalog_number": "ED POL 305",
+    "course_title": "Democracy and Education",
+    "gpa": 3.7453
+  },
+  {
+    "catalog_number": "DANCE 168",
+    "course_title": "Dancing Gender: Embodiment, Politics and Feminist Theory",
+    "gpa": 3.737
+  },
+  {
+    "catalog_number": "ED PSYCH 301",
+    "course_title": "How People Learn",
+    "gpa": 3.7365
+  },
+  {
+    "catalog_number": "ENVIR ST 369",
+    "course_title": "Thinking through History with Animals",
+    "gpa": 3.7308
+  },
+  {
+    "catalog_number": "HISTORY 369",
+    "course_title": "Thinking through History with Animals",
+    "gpa": 3.7308
+  },
+  {
+    "catalog_number": "ASIAN 301",
+    "course_title": "Social Science Topics in Asian Studies",
+    "gpa": 3.7284
+  },
+  {
+    "catalog_number": "ASIAN 301",
+    "course_title": "History of Asian Games",
+    "gpa": 3.7284
+  },
+  {
+    "catalog_number": "ASIAN 301",
+    "course_title": "Buddhism & Science in Dialogue",
+    "gpa": 3.7284
+  },
+  {
+    "catalog_number": "PHILOS 243",
+    "course_title": "Ethics in Business",
+    "gpa": 3.6828
+  },
+  {
+    "catalog_number": "LSC 350",
+    "course_title": "Visualizing Science and Technology",
+    "gpa": 3.6819
+  },
+  {
+    "catalog_number": "HISTORY 136",
+    "course_title": "Sport, Recreation, & Society in the United States",
+    "gpa": 3.6581
+  },
+  {
+    "catalog_number": "LSC 340",
+    "course_title": "Misinformation, Fake News, and Correcting False Beliefs about Science",
+    "gpa": 3.6517
+  },
+  {
+    "catalog_number": "ENVIR ST 112",
+    "course_title": "Environmental Studies: Social Science Perspectives",
+    "gpa": 3.6381
+  },
+  {
+    "catalog_number": "AMER IND 100",
+    "course_title": "Introduction to American Indian Studies",
+    "gpa": 3.6379
+  },
+  {
+    "catalog_number": "POLI SCI 314",
+    "course_title": "Criminal Law and Justice",
+    "gpa": 3.6369
+  },
+  {
+    "catalog_number": "ED POL 335",
+    "course_title": "Globalization and Education",
+    "gpa": 3.6274
+  },
+  {
+    "catalog_number": "INTL ST 335",
+    "course_title": "Globalization and Education",
+    "gpa": 3.6274
+  },
+  {
+    "catalog_number": "DANCE 268",
+    "course_title": "Political and Cultural Perspectives in Dance Studies",
+    "gpa": 3.6214
+  },
+  {
+    "catalog_number": "JOURN 175",
+    "course_title": "Media Fluency for the Digital Age",
+    "gpa": 3.618
+  },
+  {
+    "catalog_number": "HISTORY 130",
+    "course_title": "An Introduction to World History",
+    "gpa": 3.6077
+  },
+  {
+    "catalog_number": "GEOG 311",
+    "course_title": "The Global Game: Soccer, Politics, and Identity",
+    "gpa": 3.5907
+  },
+  {
+    "catalog_number": "INTL ST 311",
+    "course_title": "The Global Game: Soccer, Politics, and Identity",
+    "gpa": 3.5907
+  },
+  {
+    "catalog_number": "AMER IND 306",
+    "course_title": "Indigenous Peoples and the Environment",
+    "gpa": 3.5815
+  },
+  {
+    "catalog_number": "ENVIR ST 306",
+    "course_title": "Indigenous Peoples and the Environment",
+    "gpa": 3.5815
+  },
+  {
+    "catalog_number": "ENVIR ST 309",
+    "course_title": "People, Land and Food: Comparative Study of Agriculture Systems",
+    "gpa": 3.5724
+  },
+  {
+    "catalog_number": "GEOG 309",
+    "course_title": "People, Land and Food: Comparative Study of Agriculture Systems",
+    "gpa": 3.5724
+  },
+  {
+    "catalog_number": "C&E SOC 248",
+    "course_title": "Environment, Natural Resources, and Society",
+    "gpa": 3.5542
+  },
+  {
+    "catalog_number": "F&W ECOL 248",
+    "course_title": "Environment, Natural Resources, and Society",
+    "gpa": 3.5542
+  },
+  {
+    "catalog_number": "SOC 248",
+    "course_title": "Environment, Natural Resources, and Society",
+    "gpa": 3.5542
+  },
+  {
+    "catalog_number": "ED PSYCH 320",
+    "course_title": "Human Development in Infancy and Childhood",
+    "gpa": 3.5539
+  },
+  {
+    "catalog_number": "PHILOS 341",
+    "course_title": "Contemporary Moral Issues",
+    "gpa": 3.5502
+  },
+  {
+    "catalog_number": "GEOG 305",
+    "course_title": "Introduction to the City",
+    "gpa": 3.5466
+  },
+  {
+    "catalog_number": "URB R PL 305",
+    "course_title": "Introduction to the City",
+    "gpa": 3.5466
+  },
+  {
+    "catalog_number": "C&E SOC 370",
+    "course_title": "Introduction to Public Health",
+    "gpa": 3.5397
+  },
+  {
+    "catalog_number": "POP HLTH 370",
+    "course_title": "Introduction to Public Health",
+    "gpa": 3.5397
+  },
+  {
+    "catalog_number": "PUB AFFR 200",
+    "course_title": "Contemporary Public Policy Issues",
+    "gpa": 3.532
+  },
+  {
+    "catalog_number": "COM ARTS 371",
+    "course_title": "Communication and Conflict Resolution",
+    "gpa": 3.5275
+  },
+  {
+    "catalog_number": "INTER-HE 201",
+    "course_title": "Belonging, Purpose and the Ecology of Human Happiness: EcoYou",
+    "gpa": 3.5216
+  },
+  {
+    "catalog_number": "POLI SCI 359",
+    "course_title": "American Foreign Policy",
+    "gpa": 3.5216
+  },
+  {
+    "catalog_number": "ANTHRO 104",
+    "course_title": "Cultural Anthropology and Human Diversity",
+    "gpa": 3.5102
+  },
+  {
+    "catalog_number": "AMER IND 250",
+    "course_title": "Indians of Wisconsin",
+    "gpa": 3.5027
+  },
+  {
+    "catalog_number": "ASIAN 255",
+    "course_title": "Introduction to East Asian Civilizations",
+    "gpa": 3.4907
+  },
+  {
+    "catalog_number": "HISTORY 255",
+    "course_title": "Introduction to East Asian Civilizations",
+    "gpa": 3.4907
+  },
+  {
+    "catalog_number": "POLI SCI 255",
+    "course_title": "Introduction to East Asian Civilizations",
+    "gpa": 3.4907
+  },
+  {
+    "catalog_number": "PHILOS 241",
+    "course_title": "Introductory Ethics",
+    "gpa": 3.4833
+  },
+  {
+    "catalog_number": "CS&D 110",
+    "course_title": "Introduction to Communicative Disorders",
+    "gpa": 3.4773
+  },
+  {
+    "catalog_number": "HISTORY 357",
+    "course_title": "The Second World War",
+    "gpa": 3.4734
+  },
+  {
+    "catalog_number": "ENGL 319",
+    "course_title": "Language, Race, and Identity",
+    "gpa": 3.4648
+  },
+  {
+    "catalog_number": "AFROAMER 260",
+    "course_title": "Latin America: An Introduction",
+    "gpa": 3.4364
+  },
+  {
+    "catalog_number": "ANTHRO 260",
+    "course_title": "Latin America: An Introduction",
+    "gpa": 3.4364
+  },
+  {
+    "catalog_number": "C&E SOC 260",
+    "course_title": "Latin America: An Introduction",
+    "gpa": 3.4364
+  },
+  {
+    "catalog_number": "GEOG 260",
+    "course_title": "Latin America: An Introduction",
+    "gpa": 3.4364
+  },
+  {
+    "catalog_number": "HISTORY 260",
+    "course_title": "Latin America: An Introduction",
+    "gpa": 3.4364
+  },
+  {
+    "catalog_number": "LACIS 260",
+    "course_title": "Latin America: An Introduction",
+    "gpa": 3.4364
+  },
+  {
+    "catalog_number": "POLI SCI 260",
+    "course_title": "Latin America: An Introduction",
+    "gpa": 3.4364
+  },
+  {
+    "catalog_number": "SOC 260",
+    "course_title": "Latin America: An Introduction",
+    "gpa": 3.4364
+  },
+  {
+    "catalog_number": "SPANISH 260",
+    "course_title": "Latin America: An Introduction",
+    "gpa": 3.4364
+  },
+  {
+    "catalog_number": "HISTORY 132",
+    "course_title": "Bees, Trees, Germs, and Genes: A History of Biology",
+    "gpa": 3.4349
+  },
+  {
+    "catalog_number": "HIST SCI 132",
+    "course_title": "Bees, Trees, Germs, and Genes: A History of Biology",
+    "gpa": 3.4349
+  },
+  {
+    "catalog_number": "MED HIST 132",
+    "course_title": "Bees, Trees, Germs, and Genes: A History of Biology",
+    "gpa": 3.4349
+  },
+  {
+    "catalog_number": "SOC 134",
+    "course_title": "Sociology of Race & Ethnicity in the United States",
+    "gpa": 3.4261
+  },
+  {
+    "catalog_number": "CNSR SCI 360",
+    "course_title": "Sustainable and Socially Just Consumption",
+    "gpa": 3.4008
+  },
+  {
+    "catalog_number": "C&E SOC 211",
+    "course_title": "The Sociological Enterprise",
+    "gpa": 3.3961
+  },
+  {
+    "catalog_number": "SOC 211",
+    "course_title": "The Sociological Enterprise",
+    "gpa": 3.3961
+  },
+  {
+    "catalog_number": "GEOG 340",
+    "course_title": "World Regions in Global Context",
+    "gpa": 3.3516
+  },
+  {
+    "catalog_number": "A A E 306",
+    "course_title": "The Real Estate Process",
+    "gpa": 3.3486
+  },
+  {
+    "catalog_number": "ECON 306",
+    "course_title": "The Real Estate Process",
+    "gpa": 3.3486
+  },
+  {
+    "catalog_number": "REAL EST 306",
+    "course_title": "The Real Estate Process",
+    "gpa": 3.3486
+  },
+  {
+    "catalog_number": "URB R PL 306",
+    "course_title": "The Real Estate Process",
+    "gpa": 3.3486
+  },
+  {
+    "catalog_number": "GEOG 342",
+    "course_title": "Geography of Wisconsin",
+    "gpa": 3.3373
+  },
+  {
+    "catalog_number": "POLI SCI 170",
+    "course_title": "Research Methods in Political Science",
+    "gpa": 3.3369
+  },
+  {
+    "catalog_number": "GEN BUS 311",
+    "course_title": "Fundamentals of Management and Marketing for Non-Business Majors",
+    "gpa": 3.3305
+  },
+  {
+    "catalog_number": "GEN&WS 200",
+    "course_title": "Introduction to Lesbian, Gay, Bisexual, Transgender and Queer+ Studies",
+    "gpa": 3.309
+  },
+  {
+    "catalog_number": "SOC 200",
+    "course_title": "Introduction to Lesbian, Gay, Bisexual, Transgender and Queer+ Studies",
+    "gpa": 3.309
+  },
+  {
+    "catalog_number": "LSC 251",
+    "course_title": "Science, Media and Society",
+    "gpa": 3.3023
+  },
+  {
+    "catalog_number": "INTL ST 101",
+    "course_title": "Introduction to International Studies",
+    "gpa": 3.2954
+  },
+  {
+    "catalog_number": "AFROAMER 277",
+    "course_title": "Africa: An Introductory Survey",
+    "gpa": 3.2851
+  },
+  {
+    "catalog_number": "AFRICAN 277",
+    "course_title": "Africa: An Introductory Survey",
+    "gpa": 3.2851
+  },
+  {
+    "catalog_number": "ANTHRO 277",
+    "course_title": "Africa: An Introductory Survey",
+    "gpa": 3.2851
+  },
+  {
+    "catalog_number": "GEOG 277",
+    "course_title": "Africa: An Introductory Survey",
+    "gpa": 3.2851
+  },
+  {
+    "catalog_number": "HISTORY 277",
+    "course_title": "Africa: An Introductory Survey",
+    "gpa": 3.2851
+  },
+  {
+    "catalog_number": "POLI SCI 277",
+    "course_title": "Africa: An Introductory Survey",
+    "gpa": 3.2851
+  },
+  {
+    "catalog_number": "SOC 277",
+    "course_title": "Africa: An Introductory Survey",
+    "gpa": 3.2851
+  },
+  {
+    "catalog_number": "PHILOS 211",
+    "course_title": "Elementary Logic",
+    "gpa": 3.2576
+  },
+  {
+    "catalog_number": "ILS 205",
+    "course_title": "Western Culture: Political, Economic, and Social Thought I",
+    "gpa": 3.2169
+  },
+  {
+    "catalog_number": "AFROAMER 321",
+    "course_title": "Afro-American History Since 1900",
+    "gpa": 3.2027
+  },
+  {
+    "catalog_number": "HISTORY 321",
+    "course_title": "Afro-American History Since 1900",
+    "gpa": 3.2027
+  },
+  {
+    "catalog_number": "PHILOS 210",
+    "course_title": "Reason in Communication",
+    "gpa": 3.1741
+  },
+  {
+    "catalog_number": "GEN BUS 310",
+    "course_title": "Fundamentals of Accounting and Finance for Non-Business Majors",
+    "gpa": 3.1401
+  },
+  {
+    "catalog_number": "ECON 302",
+    "course_title": "Intermediate Macroeconomic Theory",
+    "gpa": 3.1153
+  },
+  {
+    "catalog_number": "ASIAN AM 101",
+    "course_title": "Introduction to Asian American Studies",
+    "gpa": 3.1078
+  },
+  {
+    "catalog_number": "R M I 300",
+    "course_title": "Principles of Risk Management",
+    "gpa": 3.0648
+  },
+  {
+    "catalog_number": "ECON 101",
+    "course_title": "Principles of Microeconomics",
+    "gpa": 3.0548
+  },
+  {
+    "catalog_number": "AFROAMER 151",
+    "course_title": "Introduction to Contemporary Afro-American Society",
+    "gpa": 3.0493
+  },
+  {
+    "catalog_number": "ECON 102",
+    "course_title": "Principles of Macroeconomics",
+    "gpa": 3.0242
+  },
+  {
+    "catalog_number": "LEGAL ST 131",
+    "course_title": "Criminal Justice in America",
+    "gpa": 3.0157
+  },
+  {
+    "catalog_number": "SOC 131",
+    "course_title": "Criminal Justice in America",
+    "gpa": 3.0157
+  },
+  {
+    "catalog_number": "ECON 301",
+    "course_title": "Intermediate Microeconomic Theory",
+    "gpa": 3.0104
+  },
+  {
+    "catalog_number": "ECON 300",
+    "course_title": "Introduction to Finance",
+    "gpa": 3.0064
+  },
+  {
+    "catalog_number": "FINANCE 300",
+    "course_title": "Introduction to Finance",
+    "gpa": 3.0064
+  },
+  {
+    "catalog_number": "PSYCH 202",
+    "course_title": "Introduction to Psychology",
+    "gpa": 3.0041
+  },
+  {
+    "catalog_number": "A A E 343",
+    "course_title": "Environmental Economics",
+    "gpa": 2.9813
+  },
+  {
+    "catalog_number": "ECON 343",
+    "course_title": "Environmental Economics",
+    "gpa": 2.9813
+  },
+  {
+    "catalog_number": "ENVIR ST 343",
+    "course_title": "Environmental Economics",
+    "gpa": 2.9813
+  },
+  {
+    "catalog_number": "POLI SCI 104",
+    "course_title": "Introduction to American Politics and Government",
+    "gpa": 2.9626
+  },
+  {
+    "catalog_number": "CSCS 155",
+    "course_title": "Social Media for Social Justice",
+    "gpa": null
+  },
+  {
+    "catalog_number": "LACIS 320",
+    "course_title": "Climate Justice in Latin America",
+    "gpa": null
+  },
+  {
+    "catalog_number": "COUN PSY 335",
+    "course_title": "Body Image and Eating Disorders in the Helping Professions",
+    "gpa": null
+  },
+  {
+    "catalog_number": "COUN PSY 336",
+    "course_title": "Crisis and Trauma in Counseling",
+    "gpa": null
+  },
+  {
+    "catalog_number": "COM ARTS 344",
+    "course_title": "Social Media & Well-Being",
+    "gpa": null
+  }
+]

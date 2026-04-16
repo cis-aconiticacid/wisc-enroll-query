@@ -1,0 +1,752 @@
+[
+  {
+    "catalog_number": "AMER IND 100",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to American Indian Studies"
+  },
+  {
+    "catalog_number": "RP & SE 100",
+    "credits": "3.00 credits",
+    "course_title": "Disability and Society"
+  },
+  {
+    "catalog_number": "ASIAN AM 101",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Asian American Studies"
+  },
+  {
+    "catalog_number": "ECON 101",
+    "credits": "4.00 credits",
+    "course_title": "Principles of Microeconomics"
+  },
+  {
+    "catalog_number": "ENVIR ST 101",
+    "credits": "1.00-2.00 credits",
+    "course_title": "Forum on the Environment"
+  },
+  {
+    "catalog_number": "INTL ST 101",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to International Studies"
+  },
+  {
+    "catalog_number": "SOIL SCI 101",
+    "credits": "1.00-2.00 credits",
+    "course_title": "Forum on the Environment"
+  },
+  {
+    "catalog_number": "ECON 102",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Principles of Macroeconomics"
+  },
+  {
+    "catalog_number": "ANTHRO 104",
+    "credits": "3.00 credits",
+    "course_title": "Cultural Anthropology and Human Diversity"
+  },
+  {
+    "catalog_number": "POLI SCI 104",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to American Politics and Government"
+  },
+  {
+    "catalog_number": "NURSING 105",
+    "credits": "2.00 credits",
+    "course_title": "Health Care Systems: Interdisciplinary Approach"
+  },
+  {
+    "catalog_number": "S&A PHM 105",
+    "credits": "2.00 credits",
+    "course_title": "Health Care Systems: Interdisciplinary Approach"
+  },
+  {
+    "catalog_number": "SOC WORK 105",
+    "credits": "2.00 credits",
+    "course_title": "Health Care Systems: Interdisciplinary Approach"
+  },
+  {
+    "catalog_number": "CS&D 110",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Communicative Disorders"
+  },
+  {
+    "catalog_number": "ENVIR ST 112",
+    "credits": "3.00 credits",
+    "course_title": "Environmental Studies: Social Science Perspectives"
+  },
+  {
+    "catalog_number": "RP & SE 121",
+    "credits": "3.00 credits",
+    "course_title": "Disability and Substance Abuse"
+  },
+  {
+    "catalog_number": "RP & SE 125",
+    "credits": "3.00 credits",
+    "course_title": "Health and Rehabilitation Professions"
+  },
+  {
+    "catalog_number": "HISTORY 130",
+    "credits": "3.00-4.00 credits",
+    "course_title": "An Introduction to World History"
+  },
+  {
+    "catalog_number": "LEGAL ST 131",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Criminal Justice in America"
+  },
+  {
+    "catalog_number": "SOC 131",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Criminal Justice in America"
+  },
+  {
+    "catalog_number": "HISTORY 132",
+    "credits": "3.00 credits",
+    "course_title": "Bees, Trees, Germs, and Genes: A History of Biology"
+  },
+  {
+    "catalog_number": "HIST SCI 132",
+    "credits": "3.00 credits",
+    "course_title": "Bees, Trees, Germs, and Genes: A History of Biology"
+  },
+  {
+    "catalog_number": "MED HIST 132",
+    "credits": "3.00 credits",
+    "course_title": "Bees, Trees, Germs, and Genes: A History of Biology"
+  },
+  {
+    "catalog_number": "SOC 134",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Sociology of Race & Ethnicity in the United States"
+  },
+  {
+    "catalog_number": "HISTORY 136",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Sport, Recreation, & Society in the United States"
+  },
+  {
+    "catalog_number": "ED POL 140",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Education"
+  },
+  {
+    "catalog_number": "AFROAMER 151",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Contemporary Afro-American Society"
+  },
+  {
+    "catalog_number": "CSCS 155",
+    "credits": "3.00 credits",
+    "course_title": "Social Media for Social Justice"
+  },
+  {
+    "catalog_number": "DANCE 168",
+    "credits": "3.00 credits",
+    "course_title": "Dancing Gender: Embodiment, Politics and Feminist Theory"
+  },
+  {
+    "catalog_number": "POLI SCI 170",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Research Methods in Political Science"
+  },
+  {
+    "catalog_number": "JOURN 175",
+    "credits": "3.00 credits",
+    "course_title": "Media Fluency for the Digital Age"
+  },
+  {
+    "catalog_number": "ENGL 179",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Language and Ideology"
+  },
+  {
+    "catalog_number": "GEN&WS 200",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to Lesbian, Gay, Bisexual, Transgender and Queer+ Studies"
+  },
+  {
+    "catalog_number": "PUB AFFR 200",
+    "credits": "3.00 credits",
+    "course_title": "Contemporary Public Policy Issues"
+  },
+  {
+    "catalog_number": "SOC 200",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to Lesbian, Gay, Bisexual, Transgender and Queer+ Studies"
+  },
+  {
+    "catalog_number": "INTER-HE 201",
+    "credits": "3.00 credits",
+    "course_title": "Belonging, Purpose and the Ecology of Human Happiness: EcoYou"
+  },
+  {
+    "catalog_number": "ED POL 202",
+    "credits": "3.00 credits",
+    "course_title": "Careers in Education"
+  },
+  {
+    "catalog_number": "L I S 202",
+    "credits": "3.00 credits",
+    "course_title": "Informational Divides and Differences in a Multicultural Society"
+  },
+  {
+    "catalog_number": "PSYCH 202",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to Psychology"
+  },
+  {
+    "catalog_number": "ENTOM 203",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Global Health"
+  },
+  {
+    "catalog_number": "NUTR SCI 203",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Global Health"
+  },
+  {
+    "catalog_number": "ILS 205",
+    "credits": "3.00 credits",
+    "course_title": "Western Culture: Political, Economic, and Social Thought I"
+  },
+  {
+    "catalog_number": "ED POL 210",
+    "credits": "3.00 credits",
+    "course_title": "Youth, Education, and Society"
+  },
+  {
+    "catalog_number": "PHILOS 210",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Reason in Communication"
+  },
+  {
+    "catalog_number": "C&E SOC 211",
+    "credits": "3.00 credits",
+    "course_title": "The Sociological Enterprise"
+  },
+  {
+    "catalog_number": "PHILOS 211",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Elementary Logic"
+  },
+  {
+    "catalog_number": "SOC 211",
+    "credits": "3.00 credits",
+    "course_title": "The Sociological Enterprise"
+  },
+  {
+    "catalog_number": "ED POL 212",
+    "credits": "3.00 credits",
+    "course_title": "Education for Social Justice"
+  },
+  {
+    "catalog_number": "LINGUIS 213",
+    "credits": "3.00 credits",
+    "course_title": "Language, Gender and Sexuality"
+  },
+  {
+    "catalog_number": "LINGUIS 213",
+    "credits": "3.00 credits",
+    "course_title": "Topics in Sociolinguistics"
+  },
+  {
+    "catalog_number": "ENVIR ST 215",
+    "credits": "3.00 credits",
+    "course_title": "Sustainability"
+  },
+  {
+    "catalog_number": "ED POL 220",
+    "credits": "3.00 credits",
+    "course_title": "Human Rights and Education"
+  },
+  {
+    "catalog_number": "INTL ST 220",
+    "credits": "3.00 credits",
+    "course_title": "Human Rights and Education"
+  },
+  {
+    "catalog_number": "COUN PSY 230",
+    "credits": "3.00 credits",
+    "course_title": "Race and the Developing Child"
+  },
+  {
+    "catalog_number": "LINGUIS 237",
+    "credits": "3.00 credits",
+    "course_title": "Language in Wisconsin"
+  },
+  {
+    "catalog_number": "ED POL 240",
+    "credits": "3.00 credits",
+    "course_title": "Comparative Education"
+  },
+  {
+    "catalog_number": "PHILOS 241",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introductory Ethics"
+  },
+  {
+    "catalog_number": "PHILOS 243",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Ethics in Business"
+  },
+  {
+    "catalog_number": "PHILOS 244",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introductory Artificial Intelligence (AI) and Data Ethics"
+  },
+  {
+    "catalog_number": "CHICLA 245",
+    "credits": "3.00 credits",
+    "course_title": "Chicana and Latina History"
+  },
+  {
+    "catalog_number": "GEN&WS 245",
+    "credits": "3.00 credits",
+    "course_title": "Chicana and Latina History"
+  },
+  {
+    "catalog_number": "HISTORY 245",
+    "credits": "3.00 credits",
+    "course_title": "Chicana and Latina History"
+  },
+  {
+    "catalog_number": "C&E SOC 248",
+    "credits": "3.00 credits",
+    "course_title": "Environment, Natural Resources, and Society"
+  },
+  {
+    "catalog_number": "F&W ECOL 248",
+    "credits": "3.00 credits",
+    "course_title": "Environment, Natural Resources, and Society"
+  },
+  {
+    "catalog_number": "SOC 248",
+    "credits": "3.00 credits",
+    "course_title": "Environment, Natural Resources, and Society"
+  },
+  {
+    "catalog_number": "AMER IND 250",
+    "credits": "3.00 credits",
+    "course_title": "Indians of Wisconsin"
+  },
+  {
+    "catalog_number": "LSC 251",
+    "credits": "3.00 credits",
+    "course_title": "Science, Media and Society"
+  },
+  {
+    "catalog_number": "ASIAN 255",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to East Asian Civilizations"
+  },
+  {
+    "catalog_number": "HISTORY 255",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to East Asian Civilizations"
+  },
+  {
+    "catalog_number": "POLI SCI 255",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to East Asian Civilizations"
+  },
+  {
+    "catalog_number": "AFROAMER 260",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Latin America: An Introduction"
+  },
+  {
+    "catalog_number": "ANTHRO 260",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Latin America: An Introduction"
+  },
+  {
+    "catalog_number": "C&E SOC 260",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Latin America: An Introduction"
+  },
+  {
+    "catalog_number": "GEOG 260",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Latin America: An Introduction"
+  },
+  {
+    "catalog_number": "HISTORY 260",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Latin America: An Introduction"
+  },
+  {
+    "catalog_number": "LACIS 260",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Latin America: An Introduction"
+  },
+  {
+    "catalog_number": "POLI SCI 260",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Latin America: An Introduction"
+  },
+  {
+    "catalog_number": "SOC 260",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Latin America: An Introduction"
+  },
+  {
+    "catalog_number": "SPANISH 260",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Latin America: An Introduction"
+  },
+  {
+    "catalog_number": "HDFS 262",
+    "credits": "3.00 credits",
+    "course_title": "Development of the Young Child"
+  },
+  {
+    "catalog_number": "HDFS 263",
+    "credits": "3.00 credits",
+    "course_title": "Development from Adolescence to Old Age"
+  },
+  {
+    "catalog_number": "DANCE 268",
+    "credits": "3.00 credits",
+    "course_title": "Political and Cultural Perspectives in Dance Studies"
+  },
+  {
+    "catalog_number": "AFROAMER 270",
+    "credits": "1.00-3.00 credits",
+    "course_title": "20th Cent Black Mil Hist"
+  },
+  {
+    "catalog_number": "AFROAMER 270",
+    "credits": "1.00-3.00 credits",
+    "course_title": "Selected Topics in African American Studies"
+  },
+  {
+    "catalog_number": "AFROAMER 277",
+    "credits": "4.00 credits",
+    "course_title": "Africa: An Introductory Survey"
+  },
+  {
+    "catalog_number": "AFRICAN 277",
+    "credits": "4.00 credits",
+    "course_title": "Africa: An Introductory Survey"
+  },
+  {
+    "catalog_number": "ANTHRO 277",
+    "credits": "4.00 credits",
+    "course_title": "Africa: An Introductory Survey"
+  },
+  {
+    "catalog_number": "CURRIC 277",
+    "credits": "3.00 credits",
+    "course_title": "Videogames & Learning"
+  },
+  {
+    "catalog_number": "GEOG 277",
+    "credits": "4.00 credits",
+    "course_title": "Africa: An Introductory Survey"
+  },
+  {
+    "catalog_number": "HISTORY 277",
+    "credits": "4.00 credits",
+    "course_title": "Africa: An Introductory Survey"
+  },
+  {
+    "catalog_number": "POLI SCI 277",
+    "credits": "4.00 credits",
+    "course_title": "Africa: An Introductory Survey"
+  },
+  {
+    "catalog_number": "SOC 277",
+    "credits": "4.00 credits",
+    "course_title": "Africa: An Introductory Survey"
+  },
+  {
+    "catalog_number": "ECON 300",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Finance"
+  },
+  {
+    "catalog_number": "ED POL 300",
+    "credits": "3.00 credits",
+    "course_title": "School and Society"
+  },
+  {
+    "catalog_number": "FINANCE 300",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Finance"
+  },
+  {
+    "catalog_number": "R M I 300",
+    "credits": "3.00 credits",
+    "course_title": "Principles of Risk Management"
+  },
+  {
+    "catalog_number": "ASIAN 301",
+    "credits": "3.00 credits",
+    "course_title": "Social Science Topics in Asian Studies"
+  },
+  {
+    "catalog_number": "ASIAN 301",
+    "credits": "3.00 credits",
+    "course_title": "History of Asian Games"
+  },
+  {
+    "catalog_number": "ASIAN 301",
+    "credits": "3.00 credits",
+    "course_title": "Buddhism & Science in Dialogue"
+  },
+  {
+    "catalog_number": "ECON 301",
+    "credits": "4.00 credits",
+    "course_title": "Intermediate Microeconomic Theory"
+  },
+  {
+    "catalog_number": "ED PSYCH 301",
+    "credits": "3.00 credits",
+    "course_title": "How People Learn"
+  },
+  {
+    "catalog_number": "ECON 302",
+    "credits": "4.00 credits",
+    "course_title": "Intermediate Macroeconomic Theory"
+  },
+  {
+    "catalog_number": "ED POL 305",
+    "credits": "3.00 credits",
+    "course_title": "Democracy and Education"
+  },
+  {
+    "catalog_number": "GEOG 305",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to the City"
+  },
+  {
+    "catalog_number": "URB R PL 305",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Introduction to the City"
+  },
+  {
+    "catalog_number": "A A E 306",
+    "credits": "3.00 credits",
+    "course_title": "The Real Estate Process"
+  },
+  {
+    "catalog_number": "AMER IND 306",
+    "credits": "3.00 credits",
+    "course_title": "Indigenous Peoples and the Environment"
+  },
+  {
+    "catalog_number": "ECON 306",
+    "credits": "3.00 credits",
+    "course_title": "The Real Estate Process"
+  },
+  {
+    "catalog_number": "ENVIR ST 306",
+    "credits": "3.00 credits",
+    "course_title": "Indigenous Peoples and the Environment"
+  },
+  {
+    "catalog_number": "REAL EST 306",
+    "credits": "3.00 credits",
+    "course_title": "The Real Estate Process"
+  },
+  {
+    "catalog_number": "URB R PL 306",
+    "credits": "3.00 credits",
+    "course_title": "The Real Estate Process"
+  },
+  {
+    "catalog_number": "ENVIR ST 309",
+    "credits": "3.00 credits",
+    "course_title": "People, Land and Food: Comparative Study of Agriculture Systems"
+  },
+  {
+    "catalog_number": "GEOG 309",
+    "credits": "3.00 credits",
+    "course_title": "People, Land and Food: Comparative Study of Agriculture Systems"
+  },
+  {
+    "catalog_number": "GEN BUS 310",
+    "credits": "3.00 credits",
+    "course_title": "Fundamentals of Accounting and Finance for Non-Business Majors"
+  },
+  {
+    "catalog_number": "GEN BUS 311",
+    "credits": "3.00 credits",
+    "course_title": "Fundamentals of Management and Marketing for Non-Business Majors"
+  },
+  {
+    "catalog_number": "GEOG 311",
+    "credits": "3.00-4.00 credits",
+    "course_title": "The Global Game: Soccer, Politics, and Identity"
+  },
+  {
+    "catalog_number": "INTL ST 311",
+    "credits": "3.00-4.00 credits",
+    "course_title": "The Global Game: Soccer, Politics, and Identity"
+  },
+  {
+    "catalog_number": "POLI SCI 314",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Criminal Law and Justice"
+  },
+  {
+    "catalog_number": "ENGL 319",
+    "credits": "3.00 credits",
+    "course_title": "Language, Race, and Identity"
+  },
+  {
+    "catalog_number": "ED POL 320",
+    "credits": "3.00 credits",
+    "course_title": "Climate Change, Sustainability, and Education"
+  },
+  {
+    "catalog_number": "ED PSYCH 320",
+    "credits": "2.00-3.00 credits",
+    "course_title": "Human Development in Infancy and Childhood"
+  },
+  {
+    "catalog_number": "LACIS 320",
+    "credits": "3.00 credits",
+    "course_title": "Climate Justice in Latin America"
+  },
+  {
+    "catalog_number": "AFROAMER 321",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Afro-American History Since 1900"
+  },
+  {
+    "catalog_number": "CHICLA 321",
+    "credits": "3.00 credits",
+    "course_title": "Chicano/Latino Educational Justice"
+  },
+  {
+    "catalog_number": "CURRIC 321",
+    "credits": "3.00 credits",
+    "course_title": "Chicano/Latino Educational Justice"
+  },
+  {
+    "catalog_number": "HISTORY 321",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Afro-American History Since 1900"
+  },
+  {
+    "catalog_number": "COUN PSY 335",
+    "credits": "3.00 credits",
+    "course_title": "Body Image and Eating Disorders in the Helping Professions"
+  },
+  {
+    "catalog_number": "ED POL 335",
+    "credits": "3.00 credits",
+    "course_title": "Globalization and Education"
+  },
+  {
+    "catalog_number": "INTL ST 335",
+    "credits": "3.00 credits",
+    "course_title": "Globalization and Education"
+  },
+  {
+    "catalog_number": "COUN PSY 336",
+    "credits": "3.00 credits",
+    "course_title": "Crisis and Trauma in Counseling"
+  },
+  {
+    "catalog_number": "GEOG 340",
+    "credits": "3.00 credits",
+    "course_title": "World Regions in Global Context"
+  },
+  {
+    "catalog_number": "LSC 340",
+    "credits": "3.00 credits",
+    "course_title": "Misinformation, Fake News, and Correcting False Beliefs about Science"
+  },
+  {
+    "catalog_number": "PHILOS 341",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Contemporary Moral Issues"
+  },
+  {
+    "catalog_number": "GEOG 342",
+    "credits": "3.00 credits",
+    "course_title": "Geography of Wisconsin"
+  },
+  {
+    "catalog_number": "A A E 343",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Environmental Economics"
+  },
+  {
+    "catalog_number": "C&E SOC 343",
+    "credits": "3.00 credits",
+    "course_title": "Sociology of Health and Medicine"
+  },
+  {
+    "catalog_number": "ECON 343",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Environmental Economics"
+  },
+  {
+    "catalog_number": "ENVIR ST 343",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Environmental Economics"
+  },
+  {
+    "catalog_number": "SOC 343",
+    "credits": "3.00 credits",
+    "course_title": "Sociology of Health and Medicine"
+  },
+  {
+    "catalog_number": "COM ARTS 344",
+    "credits": "3.00 credits",
+    "course_title": "Social Media & Well-Being"
+  },
+  {
+    "catalog_number": "LSC 350",
+    "credits": "3.00 credits",
+    "course_title": "Visualizing Science and Technology"
+  },
+  {
+    "catalog_number": "L I S 351",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Digital Information"
+  },
+  {
+    "catalog_number": "HISTORY 357",
+    "credits": "3.00-4.00 credits",
+    "course_title": "The Second World War"
+  },
+  {
+    "catalog_number": "POLI SCI 359",
+    "credits": "3.00-4.00 credits",
+    "course_title": "American Foreign Policy"
+  },
+  {
+    "catalog_number": "CNSR SCI 360",
+    "credits": "3.00 credits",
+    "course_title": "Sustainable and Socially Just Consumption"
+  },
+  {
+    "catalog_number": "ENVIR ST 369",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Thinking through History with Animals"
+  },
+  {
+    "catalog_number": "HISTORY 369",
+    "credits": "3.00-4.00 credits",
+    "course_title": "Thinking through History with Animals"
+  },
+  {
+    "catalog_number": "C&E SOC 370",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Public Health"
+  },
+  {
+    "catalog_number": "POP HLTH 370",
+    "credits": "3.00 credits",
+    "course_title": "Introduction to Public Health"
+  },
+  {
+    "catalog_number": "COM ARTS 371",
+    "credits": "3.00 credits",
+    "course_title": "Communication and Conflict Resolution"
+  }
+]
