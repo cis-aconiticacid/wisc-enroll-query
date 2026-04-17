@@ -1,38 +1,36 @@
 # UW-Madison Course Selection Toolkit
 
-UW-Madison 选课工具集。核心是把 **enroll.wisc.edu 搜索**（官方选课 API）和
-**Madgrades 历史 GPA** 两个独立数据源打通：搜到的每门课自动附带历史平均 GPA，
-并按 GPA 从高到低排序。
+A toolkit for UW-Madison course selection. The core feature is bridging two independent data sources — **enroll.wisc.edu search** (the official enrollment API) and **Madgrades historical GPA** — so that every course returned by search automatically includes its historical average GPA, sorted from highest to lowest.
 
-包含四个层次：
+Four layers:
 
-1. **GPA Ranker** (`gpa_ranker.py`) — Madgrades API 客户端，输入课号返回加权 GPA，内置缓存 + 限流。
-2. **Course Search Client** (`course_search.py`) — 逆向自 enroll.wisc.edu 前端的 ES 查询客户端，支持完整筛选/详情/enrollment packages。
-3. **Bridge** (`search_with_gpa.py`) — 并发给搜索结果附加 GPA，分桶排序（有数据 vs 无数据）。
-4. **Web App** (`api/` + `web/`) — FastAPI 后端 + Vite/React/Tailwind 前端。
+1. **GPA Ranker** (`gpa_ranker.py`) — Madgrades API client; input a course number to get a weighted GPA, with built-in caching and rate limiting.
+2. **Course Search Client** (`course_search.py`) — An ES query client reverse-engineered from the enroll.wisc.edu frontend, supporting full filtering, course details, and enrollment packages.
+3. **Bridge** (`search_with_gpa.py`) — Concurrently enriches search results with GPA data and sorts them into buckets (with data vs. without data).
+4. **Web App** (`api/` + `web/`) — FastAPI backend + Vite/React/Tailwind frontend.
 
 ---
 
-## 项目结构
+## Project Structure
 
 ```
 course_selection/
-├── gpa_ranker.py             # Madgrades 客户端：find_course_uuid / compute_average_gpa / get_gpa
-├── course_search.py          # enroll.wisc.edu 搜索客户端 + SearchFilters
-├── search_with_gpa.py        # 桥接：enrich_hits_with_gpa / rank_hits_by_gpa / search_ranked_by_gpa
-├── main.py                   # GPA Ranker CLI 入口（读 course_list.json）
-├── course_list.json          # 输入：待排序课程清单
-├── average_gpa_ranks.json    # 输出：按 GPA 排序的课程
-├── aggreate.json             # 选课平台 aggregate 缓存（terms / subjects / sessions）
-├── madgrades_openapi.json    # Madgrades API 规范（参考）
-├── .gpa_cache.json           # GPA 结果持久化缓存（自动生成，已 gitignore）
+├── gpa_ranker.py             # Madgrades client: find_course_uuid / compute_average_gpa / get_gpa
+├── course_search.py          # enroll.wisc.edu search client + SearchFilters
+├── search_with_gpa.py        # Bridge: enrich_hits_with_gpa / rank_hits_by_gpa / search_ranked_by_gpa
+├── main.py                   # GPA Ranker CLI entry point (reads course_list.json)
+├── course_list.json          # Input: list of courses to rank
+├── average_gpa_ranks.json    # Output: courses sorted by GPA
+├── aggreate.json             # Enrollment platform aggregate cache (terms / subjects / sessions)
+├── madgrades_openapi.json    # Madgrades API spec (reference)
+├── .gpa_cache.json           # Persisted GPA cache (auto-generated, gitignored)
 ├── .env                      # MADGRADES_API_TOKEN
 ├── requirements.txt
 ├── api/
-│   └── server.py             # FastAPI：/api/terms, /api/subjects/{term}, /api/search
+│   └── server.py             # FastAPI: /api/terms, /api/subjects/{term}, /api/search
 └── web/
     ├── package.json
-    ├── vite.config.ts        # 代理 /api → http://localhost:8000
+    ├── vite.config.ts        # Proxies /api → http://localhost:8000
     └── src/
         ├── App.tsx
         ├── api.ts
@@ -42,50 +40,48 @@ course_selection/
 
 ---
 
-## 快速开始
+## Quick Start
 
-### 1. 安装依赖
+### 1. Install Dependencies
 
 ```bash
 # Python
 pip install -r requirements.txt
 
-# 前端
+# Frontend
 cd web && npm install && cd ..
 ```
 
-### 2. 配置 Madgrades token
+### 2. Configure Madgrades Token
 
 ```bash
 cp .env_example .env
-# 编辑 .env，填入 MADGRADES_API_TOKEN=你的token
+# Edit .env and set MADGRADES_API_TOKEN=your_token
 ```
 
-在 [api.madgrades.com](https://api.madgrades.com/) 注册免费获取。
+Register for a free token at [api.madgrades.com](https://api.madgrades.com/).
 
-### 3. 启动 Web 应用（两个终端）
+### 3. Start the Web App (two terminals)
 
 ```bash
-# 终端 1 — 后端 (port 8000)
+# Terminal 1 — Backend (port 8000)
 uvicorn api.server:app --reload --port 8000
 
-# 终端 2 — 前端 (port 5173)
+# Terminal 2 — Frontend (port 5173)
 cd web && npm run dev
 ```
 
-浏览器打开 http://localhost:5173，选 term / 填关键词 / 勾筛选器，点搜索。
-结果会按 GPA 降序显示；没有 Madgrades 数据的课程显示在顶部的折叠 warning 面板里，
-勾选"Hide courses without Madgrades GPA data"可隐藏（对应后端 `ignore_null=True`）。
+Open http://localhost:5173 in your browser. Select a term, enter keywords, apply filters, and click Search. Results are displayed in descending GPA order. Courses without Madgrades data appear in a collapsible warning panel at the top; check "Hide courses without Madgrades GPA data" to hide them entirely (corresponds to `ignore_null=True` on the backend).
 
 ---
 
-## 三种使用方式
+## Three Ways to Use
 
 ### A. Web UI
 
-上面的流程。最适合探索式选课。
+Use the flow above. Best for exploratory course browsing.
 
-### B. Python 库 — 搜索 + 排序
+### B. Python Library — Search + Ranking
 
 ```python
 from course_search import CourseSearchClient, SearchFilters
@@ -98,8 +94,8 @@ result = search_ranked_by_gpa(
     term="1264",
     keywords="calculus",
     advanced=True,
-    ignore_null=False,      # True 时彻底丢弃无 GPA 的课程
-    paginate_all=False,     # True 时翻完所有页（默认单页 50 条）
+    ignore_null=False,      # True: drop courses with no GPA entirely
+    paginate_all=False,     # True: fetch all pages (default: single page of 50)
 )
 
 print(f"{result['found']} matched, {len(result['ranked'])} ranked")
@@ -114,24 +110,24 @@ for hit in result["no_data"]:
     short = hit["subject"]["shortDescription"]
     print(f"  [no madgrades data] {short} {hit['catalogNumber']}: {hit['title']}")
 
-save_gpa_cache()  # 持久化本次查到的 GPA 结果
+save_gpa_cache()  # Persist GPA results fetched in this session
 ```
 
-返回结构：
+Return structure:
 
 ```python
 {
-    "ranked":   [...],   # 有 GPA 的 hit，已按 gpa 降序排
-    "no_data":  [...],   # 无 GPA 的 hit（ignore_null=True 时为空）
-    "warnings": [...],   # 人类可读的提示
-    "total":    int,     # 本次处理的 hit 数
-    "found":    int,     # 服务端匹配总数
+    "ranked":   [...],   # Hits with GPA, sorted descending
+    "no_data":  [...],   # Hits without GPA (empty if ignore_null=True)
+    "warnings": [...],   # Human-readable notes
+    "total":    int,     # Number of hits processed
+    "found":    int,     # Total server-side matches
 }
 ```
 
-### C. Python 库 — 批量文件排序（原 GPA Ranker 流程）
+### C. Python Library — Batch File Ranking (original GPA Ranker flow)
 
-输入 `course_list.json`：
+Input `course_list.json`:
 
 ```json
 [
@@ -142,38 +138,38 @@ save_gpa_cache()  # 持久化本次查到的 GPA 结果
 
 ```bash
 python main.py
-# → average_gpa_ranks.json（按 GPA 降序，无数据的课追加到末尾）
+# → average_gpa_ranks.json (sorted descending by GPA; courses with no data appended at the end)
 ```
 
 ---
 
-## API 端点
+## API Endpoints
 
-### 后端 (FastAPI, localhost:8000)
+### Backend (FastAPI, localhost:8000)
 
 | Method | Path | Description |
-| --- | --- | --- |
+|--------|------|-------------|
 | GET | `/api/terms` | `{termCode: longDescription}` |
 | GET | `/api/subjects/{termCode}` | `{subjectCode: formalDescription}` |
-| POST | `/api/search` | 搜索 + GPA 排序。Body: `{filters, ignoreNull, paginateAll, maxPages}` |
+| POST | `/api/search` | Search + GPA ranking. Body: `{filters, ignoreNull, paginateAll, maxPages}` |
 
-### 上游
+### Upstream
 
 | API | Docs |
-| --- | --- |
-| enroll.wisc.edu | 逆向自前端 JS。详见 `course_search.py` 文件头 |
+|-----|------|
+| enroll.wisc.edu | Reverse-engineered from frontend JS. See header of `course_search.py` |
 | Madgrades | [api.madgrades.com](https://api.madgrades.com/) (OpenAPI in `madgrades_openapi.json`) |
 
 ---
 
-## 实现细节
+## Implementation Details
 
-### GPA 计算
+### GPA Calculation
 
-使用 Madgrades `cumulative` 累计字段，按 4.0 绩点加权平均：
+Uses the Madgrades `cumulative` field, weighted average on a 4.0 scale:
 
-| 成绩 | 绩点 |
-| --- | --- |
+| Grade | Points |
+|-------|--------|
 | A | 4.0 |
 | AB | 3.5 |
 | B | 3.0 |
@@ -182,32 +178,29 @@ python main.py
 | D | 1.0 |
 | F | 0.0 |
 
-S/U/CR/N/P/I/NW/NR 等非字母等级不计入平均。
+Non-letter grades (S/U/CR/N/P/I/NW/NR, etc.) are excluded from the average.
 
-### 缓存 + 限流
+### Caching + Rate Limiting
 
-- `get_gpa(catalog_number)` 读写内存 + `.gpa_cache.json`，`refresh=True` 强制刷新。
-- 所有 Madgrades HTTP 请求经过全局 `_rate_limit()`（10 req/s 上限），`ThreadPoolExecutor(max_workers=5)` 内也安全。
-- 子任务并发默认 5 个 worker，可通过 `max_workers=` 调整。
+- `get_gpa(catalog_number)` reads from and writes to both in-memory storage and `.gpa_cache.json`; pass `refresh=True` to force a refresh.
+- All Madgrades HTTP requests go through a global `_rate_limit()` (capped at 10 req/s), safe for use inside a `ThreadPoolExecutor(max_workers=5)`.
+- Default concurrency is 5 workers; adjustable via `max_workers=`.
 
-### 为什么 null 不丢到末尾
+### Why No-Data Courses Aren't Just Ranked Last
 
-无 Madgrades 数据不等于 GPA 低——可能是新课、改过课号、或录入滞后。
-把它们单独归到 `no_data` 分桶 + 在 UI 上折叠显示，用户可以选择性地忽略或单独审阅。
-`ignore_null=True` 提供一刀切隐藏。
+No Madgrades data doesn't mean a low GPA — the course might be new, have a changed course number, or simply not yet indexed. Placing them in a separate `no_data` bucket with a collapsible UI panel lets users choose to ignore or review them separately. `ignore_null=True` provides a one-click way to hide them entirely.
 
 ---
 
-## 开发
+## Development
 
-前端开发命令：
+Frontend commands:
 
 ```bash
 cd web
-npm run dev        # 开发服务器（代理到 8000）
-npm run build      # 产品构建 → web/dist
-npm run preview    # 预览构建产物
+npm run dev        # Dev server (proxied to port 8000)
+npm run build      # Production build → web/dist
+npm run preview    # Preview the production build
 ```
 
-`User-Agent` 必须保持浏览器形态，否则 enroll.wisc.edu 返回 403。
-`CourseSearchClient.DEFAULT_HEADERS` 已带 Chrome UA；覆盖时请注意。
+The `User-Agent` must appear browser-like, or enroll.wisc.edu will return 403. `CourseSearchClient.DEFAULT_HEADERS` already includes a Chrome UA — be careful when overriding it.
