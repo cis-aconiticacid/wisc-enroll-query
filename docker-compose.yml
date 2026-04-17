@@ -1,0 +1,10 @@
+services:
+  dev:
+    image: course-selection:latest
+    volumes:
+      - .:/workspace
+      - ./.claude-projects:/root/.claude/projects
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    command: bash
