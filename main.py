@@ -1,9 +1,10 @@
-from gpa_ranker import rank_courses_by_gpa, save_ranked_courses
+from gpa_ranker import rank_courses_by_gpa, save_gpa_cache, save_ranked_courses
 
 
 def main() -> None:
     ranked = rank_courses_by_gpa("course_list.json")
     out_path = save_ranked_courses(ranked, "average_gpa_ranks.json")
+    save_gpa_cache()
     print(f"Wrote {len(ranked)} ranked courses to {out_path}\n")
 
     # Print top 10 and bottom 5 as a quick sanity check
