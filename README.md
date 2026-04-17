@@ -1,13 +1,92 @@
 # UW-Madison Course Selection Toolkit
 
-A toolkit for UW-Madison course selection. The core feature is bridging two independent data sources — **enroll.wisc.edu search** (the official enrollment API) and **Madgrades historical GPA** — so that every course returned by search automatically includes its historical average GPA, sorted from highest to lowest.
+The core of this project is a **complete reverse-engineering of the search API powering [public.enroll.wisc.edu/search](https://public.enroll.wisc.edu/search)** — the official UW-Madison enrollment portal.
 
-Four layers:
+The enrollment site provides no public API documentation. By reading the minified frontend JavaScript (specifically `chunk-PJYL2HPO.js`), I reconstructed the full request/response contract: the Elasticsearch query DSL it builds, every filter parameter, the URL query string format, and all reference data (terms, subjects, sessions, special groups). The result is `course_search.py`, a Python client that replicates the portal's search behavior exactly, without a browser.
 
-1. **GPA Ranker** (`gpa_ranker.py`) — Madgrades API client; input a course number to get a weighted GPA, with built-in caching and rate limiting.
-2. **Course Search Client** (`course_search.py`) — An ES query client reverse-engineered from the enroll.wisc.edu frontend, supporting full filtering, course details, and enrollment packages.
-3. **Bridge** (`search_with_gpa.py`) — Concurrently enriches search results with GPA data and sorts them into buckets (with data vs. without data).
-4. **Web App** (`api/` + `web/`) — FastAPI backend + Vite/React/Tailwind frontend.
+On top of that foundation, I wired in **Madgrades historical GPA data** so every course returned by a search is automatically enriched with its historical average GPA and sorted accordingly.
+
+---
+
+## What Was Reverse-Engineered
+
+### API Endpoints (confirmed via DevTools)
+
+| Method | Endpoint | Purpose |
+|--------|----------|---------|
+| `POST` | `/api/search/v1` | Main course search |
+| `GET` | `/api/search/v1/subjectsMap/{termCode}` | Subject list for a term |
+| `GET` | `/api/search/v1/aggregate` | Terms, sessions, specialGroups, subjects |
+| `GET` | `/api/search/v1/enrollmentPackages/{termCode}/{subjectCode}/{courseId}` | Sections/packages for a specific course |
+| `GET` | `/api/search/v1/details/{termCode}/{subjectCode}/{courseId}` | Full course details |
+
+### Request Body Format (`POST /api/search/v1`)
+
+The portal builds an Elasticsearch bool query client-side. The reconstructed body:
+
+```json
+{
+  "selectedTerm": "1264",
+  "queryString": "calculus",
+  "filters": [...],
+  "page": 1,
+  "pageSize": 50,
+  "sortOrder": "SCORE"
+}
+```
+
+`filters` is a list of ES filter clauses. All filter logic from the UI is fully mapped:
+
+| UI Filter | ES Clause | Notes |
+|-----------|-----------|-------|
+| Seats (Open/Waitlisted/Closed) | `has_child enrollmentPackage` → `packageEnrollmentStatus.status` | Only when term is set |
+| Subject | `term subject.subjectCode` | Uses numeric code, not abbreviation |
+| Breadth (B/H/L/N/P/S) | `terms breadths.code` | |
+| General Education | `terms generalEd.code` + `has_child` for COM-B | COM-B differs from COM-A |
+| Ethnic Studies | `term ethnicStudies.code` | Separate from gen-ed |
+| Level (E/I/A) | `terms levels.code` | |
+| Mode of Instruction | `has_child enrollmentPackage` → `modesOfInstruction` | 6 modes: all/classroom/hybrid/async/sync/either |
+| Credits | `range minimumCredits` / `range maximumCredits` | |
+| Honors | `has_child enrollmentPackage` → `sections.honors` | 3 types |
+| Foreign Language | `match foreignLanguage.code` | FL1–FL5 |
+| Sessions | `has_child enrollmentPackage` → `sections.sessionCode` | |
+| Reserved Sections | `has_child enrollmentPackage` → `sections.classAttributes` | 3 modes |
+| Course Attributes | various top-level fields | gradCourseWork, workplaceExperience, etc. |
+| Catalog Number Range | `range catalogSort` (zero-padded to 5 digits) | |
+
+Key discovery: **multiple `has_child(enrollmentPackage)` filters get merged into a single `bool.must` clause** (the `vr` function in the JS). Without this, combined filters silently fail.
+
+### Filter Value Mappings (extracted from JS constants)
+
+```python
+BREADTH_MAP   = {"biologicalSciences": "B", "humanities": "H", ...}
+GEN_ED_MAP    = {"commA": "COM A", "commB": "COM B", "quantA": "QR-A", ...}
+LEVEL_MAP     = {"elementary": "E", "intermediate": "I", "advanced": "A"}
+LANGUAGE_MAP  = {"first": "FL1", "second": "FL2", ..., "fifth": "FL5"}
+HONORS_MAP    = {"honorsOnly": "HONORS_ONLY", "acceleratedHonors": "HONORS_LEVEL", ...}
+SORT_ORDER_MAP = {"relevance": "SCORE", "subject": "SUBJECT", "catalog-number": "CATALOG_NUMBER"}
+```
+
+### Subject Code Quirk
+
+The UI lets users filter by abbreviation (e.g. `MATH`, `COMP SCI`). The API actually filters on a **numeric** `subjectCode` (e.g. `"600"`, `"266"`). `CourseSearchClient._resolve_subject_code()` handles this translation transparently.
+
+### URL Query String Format
+
+The portal encodes all filters as URL params (for shareable search links). `filters_to_url_params()` reconstructs this encoding, including the `credits=min-max` and `catalogNum=min-max` range formats.
+
+### Response Structure
+
+```
+POST /api/search/v1 → {
+  "found": int,        # total matching courses
+  "hits": [CourseHit], # up to pageSize results
+  "message": str|null,
+  "success": bool
+}
+```
+
+Each `CourseHit` contains 45 fields covering course metadata, prerequisites, designations, and enrollment state.
 
 ---
 
@@ -15,26 +94,22 @@ Four layers:
 
 ```
 course_selection/
-├── gpa_ranker.py             # Madgrades client: find_course_uuid / compute_average_gpa / get_gpa
-├── course_search.py          # enroll.wisc.edu search client + SearchFilters
-├── search_with_gpa.py        # Bridge: enrich_hits_with_gpa / rank_hits_by_gpa / search_ranked_by_gpa
-├── main.py                   # GPA Ranker CLI entry point (reads course_list.json)
-├── course_list.json          # Input: list of courses to rank
+├── course_search.py          # ← Reverse-engineered enroll.wisc.edu client
+│                             #   SearchFilters, build_query, CourseSearchClient,
+│                             #   filters_to_url_params, all filter maps
+├── aggreate.json             # Aggregate cache (terms / subjects / sessions)
+├── gpa_ranker.py             # Madgrades API client: GPA lookup with caching
+├── search_with_gpa.py        # Bridge: enrich search hits with GPA, sort results
+├── main.py                   # CLI: rank a list of courses by GPA
+├── course_list.json          # Input for batch GPA ranking
 ├── average_gpa_ranks.json    # Output: courses sorted by GPA
-├── aggreate.json             # Enrollment platform aggregate cache (terms / subjects / sessions)
-├── madgrades_openapi.json    # Madgrades API spec (reference)
-├── .gpa_cache.json           # Persisted GPA cache (auto-generated, gitignored)
+├── madgrades_openapi.json    # Madgrades API spec
 ├── .env                      # MADGRADES_API_TOKEN
 ├── requirements.txt
 ├── api/
 │   └── server.py             # FastAPI: /api/terms, /api/subjects/{term}, /api/search
 └── web/
-    ├── package.json
-    ├── vite.config.ts        # Proxies /api → http://localhost:8000
     └── src/
-        ├── App.tsx
-        ├── api.ts
-        ├── types.ts
         └── components/{FilterPanel,ResultList,NoDataPanel}.tsx
 ```
 
@@ -45,10 +120,7 @@ course_selection/
 ### 1. Install Dependencies
 
 ```bash
-# Python
 pip install -r requirements.txt
-
-# Frontend
 cd web && npm install && cd ..
 ```
 
@@ -56,32 +128,44 @@ cd web && npm install && cd ..
 
 ```bash
 cp .env_example .env
-# Edit .env and set MADGRADES_API_TOKEN=your_token
+# Set MADGRADES_API_TOKEN=your_token
 ```
 
-Register for a free token at [api.madgrades.com](https://api.madgrades.com/).
+Get a free token at [api.madgrades.com](https://api.madgrades.com/).
 
-### 3. Start the Web App (two terminals)
+### 3. Run the Search Client Directly
 
-```bash
-# Terminal 1 — Backend (port 8000)
-uvicorn api.server:app --reload --port 8000
+```python
+from course_search import CourseSearchClient, SearchFilters
 
-# Terminal 2 — Frontend (port 5173)
-cd web && npm run dev
+client = CourseSearchClient()
+
+# Basic search
+result = client.search(term="1264", keywords="calculus")
+print(f"Found: {result['found']} courses")
+
+# Filtered search — mirrors the UI exactly
+filters = SearchFilters(
+    term="1264",
+    advanced=True,
+    open=True,
+    modeOfInstruction="classroom",
+    commA=True,
+)
+result = client.search(filters)
+
+# Get sections for a course
+hit = result["hits"][0]
+packages = client.get_packages_for_hit(hit)
+
+# Generate a shareable search URL
+from course_search import filters_to_url_params
+params = filters_to_url_params(filters)
+qs = "&".join(f"{k}={v}" for k, v in params.items())
+print(f"https://public.enroll.wisc.edu/search?{qs}")
 ```
 
-Open http://localhost:5173 in your browser. Select a term, enter keywords, apply filters, and click Search. Results are displayed in descending GPA order. Courses without Madgrades data appear in a collapsible warning panel at the top; check "Hide courses without Madgrades GPA data" to hide them entirely (corresponds to `ignore_null=True` on the backend).
-
----
-
-## Three Ways to Use
-
-### A. Web UI
-
-Use the flow above. Best for exploratory course browsing.
-
-### B. Python Library — Search + Ranking
+### 4. Search with GPA Ranking
 
 ```python
 from course_search import CourseSearchClient, SearchFilters
@@ -94,79 +178,40 @@ result = search_ranked_by_gpa(
     term="1264",
     keywords="calculus",
     advanced=True,
-    ignore_null=False,      # True: drop courses with no GPA entirely
-    paginate_all=False,     # True: fetch all pages (default: single page of 50)
+    ignore_null=False,
+    paginate_all=False,
 )
-
-print(f"{result['found']} matched, {len(result['ranked'])} ranked")
-for w in result["warnings"]:
-    print(f"  warning: {w}")
 
 for hit in result["ranked"][:10]:
     short = hit["subject"]["shortDescription"]
     print(f"  {short} {hit['catalogNumber']}: GPA={hit['gpa']:.2f} — {hit['title']}")
 
-for hit in result["no_data"]:
-    short = hit["subject"]["shortDescription"]
-    print(f"  [no madgrades data] {short} {hit['catalogNumber']}: {hit['title']}")
-
-save_gpa_cache()  # Persist GPA results fetched in this session
+save_gpa_cache()
 ```
 
-Return structure:
-
-```python
-{
-    "ranked":   [...],   # Hits with GPA, sorted descending
-    "no_data":  [...],   # Hits without GPA (empty if ignore_null=True)
-    "warnings": [...],   # Human-readable notes
-    "total":    int,     # Number of hits processed
-    "found":    int,     # Total server-side matches
-}
-```
-
-### C. Python Library — Batch File Ranking (original GPA Ranker flow)
-
-Input `course_list.json`:
-
-```json
-[
-  {"catalog_number": "SOC 343", "course_title": "Sociology of Health"},
-  {"catalog_number": "ECON 101", "course_title": "Microeconomics"}
-]
-```
+### 5. Start the Web App
 
 ```bash
-python main.py
-# → average_gpa_ranks.json (sorted descending by GPA; courses with no data appended at the end)
+# Terminal 1 — Backend (port 8000)
+uvicorn api.server:app --reload --port 8000
+
+# Terminal 2 — Frontend (port 5173)
+cd web && npm run dev
 ```
 
----
-
-## API Endpoints
-
-### Backend (FastAPI, localhost:8000)
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/api/terms` | `{termCode: longDescription}` |
-| GET | `/api/subjects/{termCode}` | `{subjectCode: formalDescription}` |
-| POST | `/api/search` | Search + GPA ranking. Body: `{filters, ignoreNull, paginateAll, maxPages}` |
-
-### Upstream
-
-| API | Docs |
-|-----|------|
-| enroll.wisc.edu | Reverse-engineered from frontend JS. See header of `course_search.py` |
-| Madgrades | [api.madgrades.com](https://api.madgrades.com/) (OpenAPI in `madgrades_openapi.json`) |
+Open http://localhost:5173. Filters map 1:1 to the official enrollment portal. Results are sorted by historical GPA descending; courses with no Madgrades data appear in a separate collapsible panel.
 
 ---
 
-## Implementation Details
+## Implementation Notes
+
+### 403 Avoidance
+
+The enrollment API blocks requests without a browser-like `User-Agent`. `CourseSearchClient.DEFAULT_HEADERS` includes a Chrome UA and sets `Referer`/`Origin` to `public.enroll.wisc.edu`.
 
 ### GPA Calculation
 
-Uses the Madgrades `cumulative` field, weighted average on a 4.0 scale:
+Weighted average on 4.0 scale using Madgrades `cumulative` data. Non-letter grades (S/U/CR/N/P/I/NW/NR) are excluded.
 
 | Grade | Points |
 |-------|--------|
@@ -178,29 +223,20 @@ Uses the Madgrades `cumulative` field, weighted average on a 4.0 scale:
 | D | 1.0 |
 | F | 0.0 |
 
-Non-letter grades (S/U/CR/N/P/I/NW/NR, etc.) are excluded from the average.
+### Caching and Rate Limiting
 
-### Caching + Rate Limiting
+GPA lookups are cached in `.gpa_cache.json`. All Madgrades requests go through a global rate limiter (10 req/s max), safe for use inside `ThreadPoolExecutor(max_workers=5)`.
 
-- `get_gpa(catalog_number)` reads from and writes to both in-memory storage and `.gpa_cache.json`; pass `refresh=True` to force a refresh.
-- All Madgrades HTTP requests go through a global `_rate_limit()` (capped at 10 req/s), safe for use inside a `ThreadPoolExecutor(max_workers=5)`.
-- Default concurrency is 5 workers; adjustable via `max_workers=`.
+### Why No-Data Courses Aren't Ranked Last
 
-### Why No-Data Courses Aren't Just Ranked Last
-
-No Madgrades data doesn't mean a low GPA — the course might be new, have a changed course number, or simply not yet indexed. Placing them in a separate `no_data` bucket with a collapsible UI panel lets users choose to ignore or review them separately. `ignore_null=True` provides a one-click way to hide them entirely.
+No Madgrades data doesn't mean a low GPA — the course may be new, recently renumbered, or not yet indexed. A separate `no_data` bucket with a collapsible UI panel lets users review or hide them independently. Pass `ignore_null=True` to exclude them entirely.
 
 ---
 
-## Development
+## Backend API
 
-Frontend commands:
-
-```bash
-cd web
-npm run dev        # Dev server (proxied to port 8000)
-npm run build      # Production build → web/dist
-npm run preview    # Preview the production build
-```
-
-The `User-Agent` must appear browser-like, or enroll.wisc.edu will return 403. `CourseSearchClient.DEFAULT_HEADERS` already includes a Chrome UA — be careful when overriding it.
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/api/terms` | `{termCode: longDescription}` |
+| GET | `/api/subjects/{termCode}` | `{subjectCode: formalDescription}` |
+| POST | `/api/search` | Search + GPA ranking. Body: `{filters, ignoreNull, paginateAll, maxPages}` |
