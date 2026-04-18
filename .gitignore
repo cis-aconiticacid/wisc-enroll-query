@@ -18,3 +18,4 @@ docker-compose.yml
 # Directories
 api/
 web/
+data/
